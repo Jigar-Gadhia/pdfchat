@@ -10,9 +10,10 @@ if __name__ == "__main__":
             break
         if not question:
             continue
-
+        print("💡 Answer: ", end="", flush=True)
         try:
-            answer = ask_question(question)
-            print(f"💡 Answer: {answer}\n")
+            for token in ask_question(question):
+                print(token, end="", flush=True)
+            print("\n")  # Final newline
         except Exception as e:
             print(f"❌ Error: {e}\n")
